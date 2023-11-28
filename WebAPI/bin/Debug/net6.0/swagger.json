@@ -1,0 +1,1671 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Web.Api",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Category/GetAllCategory": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/GetCategory": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/InsertCategory": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryInsertModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryInsertModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryInsertModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/UpdateCategory": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryUpdateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryUpdateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryUpdateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/DeleteCategory": {
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/GetAllItemBySupplier": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Item/GetAllItemByCustomer": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Item/GetItem": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Item/AddExistingItemToSupplier": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Id",
+                  "UserId"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/AddExistingItemToCustomer": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Id",
+                  "UserId"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/AddSupplierItem": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CategoryId",
+                  "ItemCode",
+                  "ItemDescription",
+                  "ItemName",
+                  "ItemPrice",
+                  "UserId"
+                ],
+                "type": "object",
+                "properties": {
+                  "ItemCode": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "ItemName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ItemDescription": {
+                    "type": "string"
+                  },
+                  "ItemPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "CategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ItemImage": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "ItemCode": {
+                  "style": "form"
+                },
+                "ItemName": {
+                  "style": "form"
+                },
+                "ItemDescription": {
+                  "style": "form"
+                },
+                "ItemPrice": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "ItemImage": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/AddCustomerItem": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CategoryId",
+                  "ItemCode",
+                  "ItemDescription",
+                  "ItemName",
+                  "ItemPrice",
+                  "UserId"
+                ],
+                "type": "object",
+                "properties": {
+                  "ItemCode": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "ItemName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ItemDescription": {
+                    "type": "string"
+                  },
+                  "ItemPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "CategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ItemImage": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "ItemCode": {
+                  "style": "form"
+                },
+                "ItemName": {
+                  "style": "form"
+                },
+                "ItemDescription": {
+                  "style": "form"
+                },
+                "ItemPrice": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "ItemImage": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/EditItem": {
+      "put": {
+        "tags": [
+          "Item"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CategoryId",
+                  "Id",
+                  "ItemCode",
+                  "ItemDescription",
+                  "ItemName",
+                  "ItemPrice",
+                  "UserId"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ItemCode": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "ItemName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ItemDescription": {
+                    "type": "string"
+                  },
+                  "ItemPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "CategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ItemImage": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "ItemCode": {
+                  "style": "form"
+                },
+                "ItemName": {
+                  "style": "form"
+                },
+                "ItemDescription": {
+                  "style": "form"
+                },
+                "ItemPrice": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "ItemImage": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Item/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Item"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/LoginUser": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/RegisterSupplier": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Password",
+                  "UserAddress",
+                  "UserID",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "UserID": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                    "type": "string"
+                  },
+                  "Password": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "UserAddress": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Phoneno": {
+                    "pattern": "^[+]?([0-9]{1,2})+\\-([0-9]{10})",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ProfilePhoto": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "UserID": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "UserAddress": {
+                  "style": "form"
+                },
+                "Phoneno": {
+                  "style": "form"
+                },
+                "ProfilePhoto": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/RegisterCustomer": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Password",
+                  "UserAddress",
+                  "UserID",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "UserID": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                    "type": "string"
+                  },
+                  "Password": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "UserAddress": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Phoneno": {
+                    "pattern": "^[+]?([0-9]{1,2})+\\-([0-9]{10})",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ProfilePhoto": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "UserID": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "UserAddress": {
+                  "style": "form"
+                },
+                "Phoneno": {
+                  "style": "form"
+                },
+                "ProfilePhoto": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/GetAllSupplier": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetSupplier": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/EditSupplier": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Id",
+                  "Password",
+                  "UserAddress",
+                  "UserID",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserID": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                    "type": "string"
+                  },
+                  "Password": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "UserAddress": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Phoneno": {
+                    "pattern": "^[+]?([0-9]{1,2})+\\-([0-9]{10})",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ProfilePhoto": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserID": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "UserAddress": {
+                  "style": "form"
+                },
+                "Phoneno": {
+                  "style": "form"
+                },
+                "ProfilePhoto": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/DeleteSupplier": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/GetAllCustomer": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetCustomer": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/EditCustomer": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Id",
+                  "Password",
+                  "UserAddress",
+                  "UserID",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "UserID": {
+                    "maxLength": 10,
+                    "minLength": 0,
+                    "pattern": "(?:\\s|^)#[A-Za-z0-9]+(?:\\s|$)",
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                    "type": "string"
+                  },
+                  "Password": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "UserAddress": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Phoneno": {
+                    "pattern": "^[+]?([0-9]{1,2})+\\-([0-9]{10})",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ProfilePhoto": {
+                    "type": "string",
+                    "format": "binary",
+                    "nullable": true
+                  },
+                  "IsActive": {
+                    "type": "boolean",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserID": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "UserAddress": {
+                  "style": "form"
+                },
+                "Phoneno": {
+                  "style": "form"
+                },
+                "ProfilePhoto": {
+                  "style": "form"
+                },
+                "IsActive": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/DeleteCustomer": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserType/GetAllUserType": {
+      "get": {
+        "tags": [
+          "UserType"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserType/GetUserType": {
+      "get": {
+        "tags": [
+          "UserType"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTypeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserType/InsertUserType": {
+      "post": {
+        "tags": [
+          "UserType"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeInsertModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeInsertModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeInsertModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserType/UpdateUserType": {
+      "put": {
+        "tags": [
+          "UserType"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeUpdateModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeUpdateModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTypeUpdateModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserType/DeleteUserType": {
+      "delete": {
+        "tags": [
+          "UserType"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CategoryInsertModel": {
+        "required": [
+          "categoryName"
+        ],
+        "type": "object",
+        "properties": {
+          "categoryName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryUpdateModel": {
+        "required": [
+          "categoryName",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "categoryName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemImagesView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "itemId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "itemImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userID": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPhoneno": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPhoto": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemViewModel": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "itemCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryViewModel"
+            },
+            "nullable": true
+          },
+          "itemImages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemImagesView"
+            },
+            "nullable": true
+          },
+          "user": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserView"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginModel": {
+        "required": [
+          "password",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserTypeViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "typeName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserViewModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userID": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPhoneno": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPhoto": {
+            "type": "string",
+            "nullable": true
+          },
+          "userType": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTypeViewModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserTypeInsertModel": {
+        "required": [
+          "typeName"
+        ],
+        "type": "object",
+        "properties": {
+          "typeName": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserTypeUpdateModel": {
+        "required": [
+          "id",
+          "typeName"
+        ],
+        "type": "object",
+        "properties": {
+          "typeName": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
